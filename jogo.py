@@ -1,25 +1,27 @@
 from campo import *
 from fila import *
+from utils import *
+
 
 class Jogo:
-    def __init__(self, pontoX, pontoY) -> None:
-        self._pontoX = pontoX
-        self._pontoY = pontoY
-    
-    def verificaAoRedor(self, campo):
-        fila = Fila()
-        count = 0
-        if campo[self._pontoY + 1][self._pontoX] == 7:
-            count += 1
-        
-        campo[self._pontoY][self._pontoX + 1]
-        campo[self._pontoY - 1][self._pontoX]
-        campo[self._pontoY][self._pontoX - 1]
+    def __init__(self, tamanhoCampo) -> None:
+        self._tamanhoCampo = tamanhoCampo
+        self._imprimirZero = MetodosExternos()
 
-
-    def verificaPontos(self, campo):
-        if self._pontoY == 0:
-            print("Não existe ponto acima")
-        if (campo[self._pontoY][self._pontoX]) == 7:
+    def verificaJogada(self, x, y, campo, campoJogador):
+        if campo[y][x] == 0:
+            campoJogador[y][x] = campo[y][x]
+            campoJogador = self._imprimirZero.valoresVazio(
+                x, y, campo, campoJogador, self._tamanhoCampo)
+            self._imprimirZero.preencheComZero()
+        elif campo[y][x] != 'X':
+            campoJogador[y][x] = campo[y][x]
+        elif campo[y][x] == 'X':
             print("Você perdeu!")
-            
+
+    def checarVitoria(self, campoJogador):
+        for linha in campoJogador:
+            for pixel in linha:
+                if pixel == '-':
+                    return False
+        return True

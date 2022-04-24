@@ -72,5 +72,5 @@ class Campo:
 
 if __name__ == "__main__":
     x = Campo(5, 5)
-    x.criaCampo()
-    x.mostraCampo()
+    x.criaCampoJogador()
+    x.mostraCampoJogador()

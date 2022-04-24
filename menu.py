@@ -15,14 +15,15 @@ def menu():
     operacao = Jogo(tamanhoCampo)
     while True:
         if operacao.checarVitoria(jogador) == False:
-            print(jogo.mostraCampoJogador())
+            jogo.mostraCampoJogador()
             pontoX = int(input("linha(1 a {}): ".format(tamanhoCampo)))
             pontoY = int(input("coluna:(1 a {}) ".format(bombas)))
             operacao.verificaJogada(pontoX - 1, pontoY - 1, campo, jogador)
-            jogo.mostraCampo()
             if campo[pontoY - 1][pontoX - 1] == 'X':
                 jogo.mostraCampo()
                 break
-
-
+        else:
+            jogo.mostraCampoJogador()
+            print('Parabéns, você venceu!')
+        
 menu()

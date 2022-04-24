@@ -16,11 +16,11 @@ def menu():
     while True:
         if operacao.checarVitoria(jogador) == False:
             print(jogo.mostraCampoJogador())
-            pontoX = int(input("linha: "))
-            pontoY = int(input("coluna: "))
-            operacao.verificaJogada(pontoX, pontoY, campo, jogador)
+            pontoX = int(input("linha(1 a {}): ".format(tamanhoCampo)))
+            pontoY = int(input("coluna:(1 a {}) ".format(bombas)))
+            operacao.verificaJogada(pontoX - 1, pontoY - 1, campo, jogador)
             jogo.mostraCampo()
-            if campo[pontoY][pontoX] == 'X':
+            if campo[pontoY - 1][pontoX - 1] == 'X':
                 jogo.mostraCampo()
                 break
 

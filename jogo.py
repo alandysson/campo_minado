@@ -13,7 +13,6 @@ class Jogo:
             campoJogador[y][x] = campo[y][x]
             campoJogador = self._imprimirZero.valoresVazio(
                 x, y, campo, campoJogador, self._tamanhoCampo)
-            self._imprimirZero.preencheComZero()
         elif campo[y][x] != 'X':
             campoJogador[y][x] = campo[y][x]
         elif campo[y][x] == 'X':
